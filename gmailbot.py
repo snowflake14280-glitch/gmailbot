@@ -1,11 +1,14 @@
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+import requests
 import requests
 
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -13,7 +16,6 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
 KEYWORD = "chess.com"
-
 
 def send_telegram(msg):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
